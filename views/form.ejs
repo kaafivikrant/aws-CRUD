@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.container{
+  max-width: 1024px;
+  margin: auto;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-dark{
+	color: black;
+}
+
+.inline{
+	display: inline-block;
+}
+
+.text-light{
+	color: darkgray;
+}
+/*  add user & update user template */
+.form-title{
+	margin-top: 2em;
+}
+
+.form-title > h2{
+	padding: .5em 0;
+}
+#add_user .form-group input[type="text"]{
+	width: 100%;
+	padding: .6em 1em;
+	margin: .5em 0;
+	border: 1px solid rgb(168, 168, 168);
+	font-family: 'Barlow', sans-serif;
+	font-size: 1em;
+	border-radius: .2em;
+	color: var(--light);
+}
+#add_user .form-group .radio{
+	margin: 1em 2em;
+}
+
+/* adding style to radio buttons */
+.radio input[type='radio']{
+	position: absolute;
+	opacity: 0;
+}
+
+.radio input[type='radio'] + .radio-label:before{
+	content: "";
+	border-radius: 100%;
+	border: 1px solid black;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	position: relative;
+	top: -0em;
+	margin-right: .5em;
+	vertical-align: top;
+	cursor: pointer;
+	text-align: center;
+	-webkit-transition: all 250ms ease;
+	transition: all 250ms ease;
+}
+
+.radio input[type='radio']:checked + .radio-label:before{
+	background-color: #16db93;
+	box-shadow: inset 0 0 0 4px #e9ecef;
+}
+
+.radio input[type='radio']:focus + .radio-label:before{
+	outline: none;
+	border-color:#16db93;
+}
+
+#add_user .form-group .btn{
+	width: 100%;
+	padding: .9em 1em;
+	background-color:#16db93; 
+	border: none;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: .2em;
+	margin: .5em 0;
+}
+#add_user .form-group .btn:hover{
+	background-color: rgb(37, 179, 37);
+	color: white;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="form-title text-center">
+      <h2 >New User</h2>
+      <span >Use the below form to create a new user</span>
+    </div>
+    <form action="/save" method="POST" id="add_user">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="Name" >Name</label>
+                <input type="text" name="Name" value="" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="Email" class="text-dark">Email</label>
+                <input type="text" name="Email" value="" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="Age" class="text-dark">Age</label>
+                <input type="text" name="Age" value="" placeholder="Enter your Age">
+            </div>
+            <div class="form-group">
+                <label for="Work" class="text-dark">Work</label>
+                <input type="text" name="Work" value="" placeholder="Enter your Work">
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-2" name="Gender" value="Male" >
+                    <label for="radio-2" class="radio-label">Male</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-3" name="Gender" value="Female" >
+                    <label for="radio-3" class="radio-label">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn"  type="submit">Save</button>
+            </div>
+    
+        </div>
+    </form>
+    
+</div>
+</body>
+</html>
